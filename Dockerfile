@@ -7,6 +7,7 @@ COPY --from=alpine /usr/lib/libapk.so* /usr/lib/
 
 # Switch to root to install postgresql-client, then switch back
 USER root
+ENV PATH=$PATH:/usr/local/lib/node_modules/n8n/bin
 RUN apk add --no-cache postgresql-client
 USER node
 # Set environment variables with placeholders (to be set in Render)
